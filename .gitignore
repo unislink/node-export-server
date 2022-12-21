@@ -15,3 +15,5 @@ tests/**/_results/
 **/*.svg
 **/*.jpeg
 **/*.log
+
+yarn.lock
