@@ -20,8 +20,9 @@ jobs:
   - task: Docker@2
     displayName: Build and Publish an image to GCP
     inputs:
-      containerRegistry: 80701ad9-27e4-4e61-b7c7-c49a49bee74e
+      command: buildAndPush
+      containerRegistry: gcp-unis-us-sc
       repository: unis-labs/unislink-gcr/chart-service-engine
-      tags: >-
+      tags: |
         $(Build.BuildNumber)
         latest
