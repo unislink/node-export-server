@@ -3,13 +3,13 @@
 trigger:
   branches:
     include:
-    - refs/heads/release
+    - refs/heads/enhancement/puppeteer
 name: $(Major).$(Minor).$(Patch)
 resources:
   repositories:
   - repository: self
     type: git
-    ref: refs/heads/release
+    ref: refs/heads/enhancement/puppeteer
 jobs:
 - job: Job_1
   displayName: Agent job 1
