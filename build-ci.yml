@@ -1,0 +1,27 @@
+# Variable 'BuildNumberGroupId' was defined in the Variables tab
+# Variable Group 'cqm-engine-build' was defined in the Variables tab
+trigger:
+  branches:
+    include:
+    - refs/heads/release
+name: $(Major).$(Minor).$(Patch)
+resources:
+  repositories:
+  - repository: self
+    type: git
+    ref: refs/heads/release
+jobs:
+- job: Job_1
+  displayName: Agent job 1
+  pool:
+    vmImage: ubuntu-latest
+  steps:
+  - checkout: self
+  - task: Docker@2
+    displayName: Build and Publish an image to GCP
+    inputs:
+      containerRegistry: 80701ad9-27e4-4e61-b7c7-c49a49bee74e
+      repository: unis-labs/unislink-gcr/cqm-engine
+      tags: >-
+        $(Build.BuildNumber)
+        latest
