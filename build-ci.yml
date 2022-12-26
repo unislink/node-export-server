@@ -21,7 +21,7 @@ jobs:
     displayName: Build and Publish an image to GCP
     inputs:
       containerRegistry: 80701ad9-27e4-4e61-b7c7-c49a49bee74e
-      repository: unis-labs/unislink-gcr/cqm-engine
+      repository: unis-labs/unislink-gcr/chart-service-engine
       tags: >-
         $(Build.BuildNumber)
         latest
